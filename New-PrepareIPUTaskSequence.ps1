@@ -1,4 +1,4 @@
-$TaskSequenceName = "Prepare In-Place Upgrade PoSH"
+$TaskSequenceName = "Template Prepare In-Place Upgrade"
 $Languages = "DE-DE", "FR-FR", "IT-IT"
 
 #region Create Dummy Package
@@ -256,7 +256,7 @@ Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $DriversGroup.Name 
 
 #region Create the 3rd Party Disk Encryption Group
 $3rdPartyEncGroup = New-CMTaskSequenceGroup -Name "3rd Party Disk Encryption" -Disable
-Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Name -Description "Use this if your 3rd Party Diskencryption requires drivers for the IPU" -AddStep $3rdPartyEncGroup  -InsertStepStartIndex 4
+Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Name -AddStep $3rdPartyEncGroup  -InsertStepStartIndex 4
 #endregion
 
 #region Set TSVar 3rdParty Download Path
@@ -267,7 +267,7 @@ $3rdPartyEncTSVarArgs = @{
    
 }
 $3rdPartyEncTSVarStep = New-CMTSStepSetVariable @3rdPartyEncTSVarArgs
-Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $3rdPartyEncGroup.Name -AddStep $3rdPartyEncTSVarStep -InsertStepStartIndex 0
+Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $3rdPartyEncGroup.Name -AddStep $3rdPartyEncTSVarStep -InsertStepStartIndex 0 -Description "Use this if your 3rd Party Diskencryption requires drivers for the IPU"
 #endregion
 
 #region Download 3rd Party Encryption Step
