@@ -287,11 +287,11 @@ $AdditionsSetupGroup = New-CMTaskSequenceGroup -Name "Additional Setup Parameter
 Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Name -AddStep $AdditionsSetupGroup -InsertStepStartIndex 5
 #endregion
 
-#region Set TSVar Priority
+#region Set TSVar DynamicUpdate
 $AdditionsSetupParamsTSVarArgs = @{
-    Name                      = "Priority = Normal"
-    TaskSequenceVariable      = "SetupConfig_Priority"
-    TaskSequenceVariableValue = "Normal"
+    Name                      = "DynamicUpdate = Enable"
+    TaskSequenceVariable      = "SetupConfig_DynamicUpdate"
+    TaskSequenceVariableValue = "Enable"
     Description               = "Prefix = SetupConfig_"
    
 }
