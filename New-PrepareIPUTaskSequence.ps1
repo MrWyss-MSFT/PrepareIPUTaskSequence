@@ -203,7 +203,7 @@ Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Na
 $LangPackDownloadPathTSVarArgs = @{
     Name                      = "Set TSVar LanguagePack Download Path"
     TaskSequenceVariable      = "SetupConfig_InstallLangPacks"
-    TaskSequenceVariableValue = "c:\Windows\Temp\IPU\LP"
+    TaskSequenceVariableValue = "c:\Windows\IPU\LP"
    
 }
 $LangPackDownloadPathTSVarStep = New-CMTSStepSetVariable @LangPackDownloadPathTSVarArgs
@@ -234,7 +234,7 @@ Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Na
 $DriversDownloadPathTSVarArgs = @{
     Name                      = "Set TSVar Drivers Download Path"
     TaskSequenceVariable      = "SetupConfig_InstallDrivers"
-    TaskSequenceVariableValue = "c:\Windows\Temp\IPU\Drivers"
+    TaskSequenceVariableValue = "c:\Windows\IPU\Drivers"
    
 }
 $DriversDownloadPathTSVarStep = New-CMTSStepSetVariable @DriversDownloadPathTSVarArgs
@@ -263,7 +263,7 @@ Set-CMTaskSequenceGroup -TaskSequenceName $TS.Name -StepName $PrepareIPUGroup.Na
 $3rdPartyEncTSVarArgs = @{
     Name                      = "Set TSVar Disk Encryption Download Path"
     TaskSequenceVariable      = "SetupConfig_ReflectDrivers"
-    TaskSequenceVariableValue = "c:\Windows\Temp\IPU\Disk"
+    TaskSequenceVariableValue = "c:\Windows\IPU\Disk"
    
 }
 $3rdPartyEncTSVarStep = New-CMTSStepSetVariable @3rdPartyEncTSVarArgs
