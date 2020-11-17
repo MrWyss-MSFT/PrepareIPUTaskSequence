@@ -386,7 +386,7 @@ $CreateSetupConfigIniScript = {
             Write-ToLog "Create SetupConfig.ini"
     
             #region Create Folder
-            If (Test-Path -Path $SetupConfigPath -ne $True) {
+            If ((Test-Path -Path $SetupConfigPath) -ne $True) {
                 New-Item -Path $SetupConfigPath -ItemType directory -Force
                 Write-ToLog "Create Folder: $SetupConfigPath"
             }
